@@ -3,8 +3,8 @@
     "use strict";
     
     // set user data
-    const userDate = 15;
-    const userMonth = 2;
+    const userDate = 31;
+    const userMonth = 12;
     const userYear = 1990;
     
     //console.log('User Date: ' + userDate);
@@ -25,4 +25,71 @@
     }
     
     console.log('Days in Month: ' + daysInMonth);
+
+
+    // convert user date & month into numbers
+    let numericDate;
+
+    const Jan = 31;
+    let Feb = 28;
+    if (leapYear === 0) {
+        Feb++;
+    }
+    const Mar = 31;
+    const Apr = 30;
+    const May = 31;
+    const Jun = 30;
+    const Jul = 31;
+    const Aug = 31;
+    const Sep = 30;
+    const Oct = 31;
+    const Nov = 30;
+
+    let prevMonth;
+
+    switch (userMonth) {
+        case 1:
+            prevMonth = 0;
+            break;
+        case 2:
+            prevMonth = Jan;
+            break;
+        case 3:
+            prevMonth = Jan + Feb;
+            break;
+        case 4:
+            prevMonth = Jan + Feb + Mar;
+            break;
+        case 5:
+            prevMonth = Jan + Feb + Mar + Apr;
+            break;
+        case 6:
+            prevMonth = Jan + Feb + Mar + Apr + May;
+            break;
+        case 7:
+            prevMonth = Jan + Feb + Mar + Apr + May + Jun;
+            break;
+        case 8:
+            prevMonth = Jan + Feb + Mar + Apr + May + Jun + Jul;
+            break;
+        case 9:
+            prevMonth = Jan + Feb + Mar + Apr + May + Jun + Jul + Aug;
+            break;
+        case 10:
+            prevMonth = Jan + Feb + Mar + Apr + May + Jun + Jul + Aug + Sep;
+            break;
+        case 11:
+            prevMonth = Jan + Feb + Mar + Apr + May + Jun + Jul + Aug + Sep + Oct;
+            break;
+        case 12:
+            prevMonth = Jan + Feb + Mar + Apr + May + Jun + Jul + Aug + Sep + Oct + Nov;
+            break;
+        default:
+            console.log('invalid user month');
+    }
+
+    console.log(`prevMonth: ${prevMonth}`);
+        numericDate = userDate + prevMonth;
+    console.log(`numericDate: ${numericDate}`)
+
 })();
