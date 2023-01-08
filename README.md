@@ -1,1 +1,1 @@
-https://k-korolev.github.io/age-calc/
+https://k-korolev.github.io/age-calc/www/
