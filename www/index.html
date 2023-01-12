@@ -14,21 +14,16 @@
         <div class="calc-box">
             <h1>Age Calculator</h1>
             <div class="calc-input">
-                <form action="" method="get">
-                    <label>Date:</label>
-                    <input type="text" name="date">
-            
-                    <label>Month:</label>
-                    <input type="text" name="month">
-            
-                    <label>Year:</label>
-                    <input type="text" name="year">
-            
-                    <input type="submit" value="submit">
+                <form method="post" id="ageCalc">
+                    <input type="text" name="userDate" id="userDate" placeholder="Date">
+                    <input type="text" name="userMonth" id="userMonth" placeholder="Month">
+                    <input type="text" name="userYear" id="userYear" placeholder="Year">
+                    <input type="submit" name="submit" value="submit">
                 </form>
             </div>
-            <div class="calc-result"></div>
+            <div class="calc-result" id="calc-result"><h2></h2></div>
         </div>
     </div>
+
 </body>
 </html>

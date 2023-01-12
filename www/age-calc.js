@@ -1,11 +1,23 @@
-//
 (function(){
     "use strict";
     
-    // set user data
+    /*
+    const heading = document.querySelector('h1');
+    const intro = document.querySelector('p');
+    const form = document.getElementById('ageCalc');
+    const result = document.getElementById('calc-result');
+
+    form.addEventListener('submit', function(event){
+        event.preventDefault();
+        //const userDate = parseFloat(document.getElementById('userDate').value);
+        //const userMonth = parseFloat(document.getElementById('userMonth').value);
+        //const userYear = parseFloat(document.getElementById('userYear').value);
+    });
+    */
+
     const userDate = 10;
     const userMonth = 1;
-    const userYear = 1997;
+    const userYear = 1990;
     console.log(`User Date: ${userDate}.${userMonth}.${userYear}`);
     
     const leapYear = !Boolean(userYear % 4);
@@ -94,6 +106,7 @@
     else {console.log('zodiakCalc: error');}
 
     console.log(`Zodiak: ${zodiaks[zodiakCalc].name}`);
+    //result.innerHTML = `<h2>${zodiaks[zodiakCalc].name}</h2>`;
 
 
 })();
