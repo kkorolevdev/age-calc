@@ -10,6 +10,8 @@
     const today = [date.getDate(), date.getMonth() + 1, date.getFullYear()];
     //const today = [14, 2, 2023] // 2 = March !!!
     const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const ChineseCalendar = ['Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Goat', 'Monkey', 'Rooster', 'Dog', 'Pig'];
+    const skyStems = ['wood', 'fire', 'earth', 'metal', 'water'];
     const zodiaks = [ // no correction for a leap year yet 
         {endNumDate:  19, name: 'Capricornus'},
         {endNumDate:  49, name: 'Aquarius'},
@@ -30,10 +32,9 @@
         const userDate = parseFloat(document.getElementById('userDate').value);
         const userMonth = parseFloat(document.getElementById('userMonth').value);
         const userYear = parseFloat(document.getElementById('userYear').value);
-        
         const leapYear = !Boolean(userYear % 4);
         const leapYearCorrection = leapYear === true ? 1 : 0;
-   
+
 
         // convert user date & month into numbers
         let prevMonthSum = 0;
@@ -41,7 +42,7 @@
             prevMonthSum = prevMonthSum + daysInMonth[i];
         }
         const userDateNumeric = prevMonthSum + userDate;
-        
+
 
         // Calculate zodiak
         let zodiakCalc;
@@ -74,8 +75,20 @@
             yearCorrection = 1;
         }
         const age = today[2] - userYear - yearCorrection;
-        
 
+
+        // Calculate Chinese Calendar
+        let chYear = userYear - 1984;;
+        let chZodiak;
+        if (userYear >= 1984) {
+            chYear = (chYear > 11) ? chYear % 12 : chYear;
+            chZodiak = ChineseCalendar[chYear];
+        } else {
+            chYear = (chYear < 11) ? chYear % 12 : chYear;
+            chZodiak = ChineseCalendar[12 + chYear];
+        }
+        
+        
         //console.log(`today: ${today}`);
         //console.log(`User Date: ${userDate}.${userMonth}.${userYear}`);
         //console.log(`prevMonth: ${prevMonthSum}`);
@@ -83,10 +96,10 @@
         //console.log(`Leap Year: ${leapYear}`);
         //console.log(`Leap Year Correction: ${leapYearCorrection}`);
         //console.log(thisYearDoB);
-
+        //console.log(chZodiak);
 
         // Show result
-        result.innerHTML = `<span>DoB: ${userDate}.${userMonth}.${userYear}</span><span>Zodiak: ${zodiaks[zodiakCalc].name}</span><span>Age: ${age}</span>`;
+        result.innerHTML = `<div><span>Date of Birth: ${userDate}.${userMonth}.${userYear}</span><span>Age: ${age}</span></div><div><span>Zodiak: ${zodiaks[zodiakCalc].name}</span><span>Chinese Zodiak: ${chZodiak}*</span></div>`;
     });
 
 })();
