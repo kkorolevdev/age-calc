@@ -2,8 +2,14 @@
 
     "use strict";
 
+    console.log('Hello');
+
     const result = document.getElementById('result');
     const form = document.getElementById('ageCalc');
+    const date = new Date();
+    const today = [date.getDate(), date.getMonth() + 1, date.getFullYear()];
+    //const today = [14, 2, 2023]
+    console.log('today: ' + today);
 
     form.addEventListener('submit', function(event){
         event.preventDefault();
@@ -59,7 +65,25 @@
         else if (userDateNumeric <= zodiaks[11].endNumDate) {zodiakCalc = 11;}
         else {console.log('zodiakCalc: error');}
 
-        result.innerHTML = `<span>Date: ${userDate}.${userMonth}.${userYear}</span><span>Zodiak: ${zodiaks[zodiakCalc].name}</span>`;
+        // Calculate age
+        let thisYearDoB;
+        let yearCorrection;
+        if (today[1] > userMonth) {
+            thisYearDoB = true;
+            yearCorrection = 0;
+        } else if (today[1] === userMonth && today[0] >= userDate) {
+            thisYearDoB = true;
+            yearCorrection = 0;
+        } else {
+            thisYearDoB = false;
+            yearCorrection = 1;
+        }
+        
+        console.log(thisYearDoB);
+        const age = today[2] - userYear - yearCorrection;
+
+        // Show result
+        result.innerHTML = `<span>DoB: ${userDate}.${userMonth}.${userYear}</span><span>Zodiak: ${zodiaks[zodiakCalc].name}</span><span>Age: ${age}</span>`;
     });
 
 })();
