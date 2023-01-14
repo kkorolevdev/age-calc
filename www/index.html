@@ -2,28 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Age calculator</title>
-    <script href="age-calc.js" defer></script>
 
-    <link rel="stylesheet" href="css/age-calc.css">
+    <!--/ /-------- Normalize CSS --------/ /-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+	<!--/ /-------- Google Fonts --------/ /-->
+	<link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans&display=swap" rel="stylesheet">
+
+	<!--/ /-------- My Styles --------/ /-->
+	<link href="css/age-calc.css" rel="stylesheet">
+	<script src="script.js" defer></script>
 </head>
 <body>
     <div class="page-wrapper">
         <div class="calc-box">
-            <h1>Age Calculator</h1>
-            <div class="calc-input">
-                <form method="post" id="ageCalc">
-                    <input type="text" name="userDate" id="userDate" placeholder="Date">
-                    <input type="text" name="userMonth" id="userMonth" placeholder="Month">
-                    <input type="text" name="userYear" id="userYear" placeholder="Year">
-                    <input type="submit" name="submit" value="submit">
+            <h1>Zodiak sign calculator</h1>
+    
+            <div class="container top">
+                <p>Type in your date of birth and click the button.</p>
+                
+                <form method="post" action="somephpfile.php" id="ageCalc">
+                
+                    <input type="text" name="userDate" id="userDate" placeholder="date">
+                    <input type="text" name="userMonth" id="userMonth" placeholder="month">
+                    <input type="text" name="userYear" id="userYear" placeholder="year">
+                    <input type="submit" name="calculate" value="Calculate">
+                
                 </form>
             </div>
-            <div class="calc-result" id="calc-result"><h2></h2></div>
+            <div class="container bottom" id="result">
+                <span class="invisible">&nbsp;</span>
+            </div>
         </div>
     </div>
-
 </body>
 </html>
